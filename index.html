@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Арнайы Шақыру | Туған Күніңмен, Жүрегім!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        roseGold: '#B76E79',
+                        blushPink: '#FFD1DC',
+                        softCream: '#FFF9F5',
+                        deepRose: '#8B263E',
+                        goldAccent: '#D4AF37'
+                    },
+                    fontFamily: {
+                        cursive: ['Great Vibes', 'cursive'],
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffd1dc 50%, #ffe4e6 100%);
+            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Falling Rose Petals Canvas */
+        #petalCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 20px 40px rgba(139, 38, 62, 0.1);
+        }
+
+        .pulse-heart {
+            animation: heartBeat 1.5s infinite;
+        }
+
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.15); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.15); }
+            70% { transform: scale(1); }
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .gold-border {
+            border: 2px solid #D4AF37;
+        }
+    </style>
+</head>
+<body class="text-gray-800 min-h-screen relative flex flex-col items-center justify-between pb-12">
+
+    <!-- Petals Canvas Animation -->
+    <canvas id="petalCanvas"></canvas>
+
+    <!-- Music Toggle Button -->
+    <div class="fixed top-5 right-5 z-50">
+        <button id="musicBtn" onclick="toggleMusic()" class="glass-card w-12 h-12 rounded-full flex items-center justify-center text-deepRose shadow-lg hover:scale-110 transition duration-300">
+            <i id="musicIcon" class="fas fa-music text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Main Container -->
+    <main class="container max-w-lg mx-auto px-4 pt-8 z-20 flex flex-col items-center">
+
+        <!-- Envelope Top Decor -->
+        <div class="text-center mb-6 floating">
+            <span class="inline-block p-4 rounded-full bg-white/80 shadow-md text-3xl text-deepRose mb-2 pulse-heart">
+                🌹
+            </span>
+            <p class="text-sm uppercase tracking-widest text-deepRose font-semibold">Арнайы саған арналады</p>
+        </div>
+
+        <!-- Main Card -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 w-full text-center relative overflow-hidden mb-8 border-2 border-pink-100">
+            
+            <div class="absolute -top-10 -left-10 w-24 h-24 bg-pink-300 rounded-full blur-2xl opacity-50"></div>
+            <div class="absolute -bottom-10 -right-10 w-24 h-24 bg-red-300 rounded-full blur-2xl opacity-50"></div>
+
+            <h2 class="font-cursive text-4xl sm:text-5xl text-deepRose mb-2">Ардақты, Сүйіктім!</h2>
+            <p class="text-gray-600 text-sm sm:text-base italic mb-6 font-serif">"Сен бар жерде — мен бақыттымын..."</p>
+
+            <div class="w-16 h-0.5 bg-goldAccent mx-auto mb-6"></div>
+
+            <p class="text-gray-700 leading-relaxed mb-6 text-sm sm:text-base">
+                Өміріме шуақ шашқан періштем, сенің туған күнің — мен үшін де ең ерекше әрі ыстық мереке. Бұл күнді тек екеумізге арнап, саған ұмытылмас әдемі кеш сыйлағым келеді.
+            </p>
+
+            <p class="text-deepRose font-semibold mb-6">
+                Сені шын жүректен арнайы дайындалған мерекелік кештің басты қонағы болуға шақырамын! ✨
+            </p>
+
+            <!-- Details Grid -->
+            <div class="bg-white/60 rounded-2xl p-4 sm:p-6 mb-6 space-y-4 border border-pink-200">
+                <div class="flex items-center space-x-4 text-left">
+                    <div class="w-10 h-10 rounded-full bg-roseGold/20 flex items-center justify-center text-deepRose shrink-0">
+                        <i class="far fa-calendar-alt text-lg"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Мереке күні</p>
+                        <p class="text-gray-800 font-bold text-base">24 Қазан</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4 text-left">
+                    <div class="w-10 h-10 rounded-full bg-roseGold/20 flex items-center justify-center text-deepRose shrink-0">
+                        <i class="far fa-clock text-lg"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Басталу уақыты</p>
+                        <p class="text-gray-800 font-bold text-base">Сағат 13:00</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4 text-left">
+                    <div class="w-10 h-10 rounded-full bg-roseGold/20 flex items-center justify-center text-deepRose shrink-0">
+                        <i class="fas fa-map-marker-alt text-lg"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Мекенжайымыз</p>
+                        <p class="text-gray-800 font-bold text-base">Астана қаласы,</p>
+                        <p class="text-gray-600 text-sm">Роза Бағланова көшесі, 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Countdown Section -->
+            <div class="mb-6">
+                <p class="text-xs uppercase tracking-widest text-gray-500 mb-3 font-semibold">Айтулы күнге дейін қалды:</p>
+                <div class="grid grid-cols-4 gap-2 text-center" id="countdown">
+                    <div class="bg-white/80 p-2 rounded-xl shadow-sm">
+                        <span id="days" class="block font-bold text-lg text-deepRose">00</span>
+                        <span class="text-[10px] text-gray-500 uppercase">Күн</span>
+                    </div>
+                    <div class="bg-white/80 p-2 rounded-xl shadow-sm">
+                        <span id="hours" class="block font-bold text-lg text-deepRose">00</span>
+                        <span class="text-[10px] text-gray-500 uppercase">Сағат</span>
+                    </div>
+                    <div class="bg-white/80 p-2 rounded-xl shadow-sm">
+                        <span id="minutes" class="block font-bold text-lg text-deepRose">00</span>
+                        <span class="text-[10px] text-gray-500 uppercase">Минут</span>
+                    </div>
+                    <div class="bg-white/80 p-2 rounded-xl shadow-sm">
+                        <span id="seconds" class="block font-bold text-lg text-deepRose">00</span>
+                        <span class="text-[10px] text-gray-500 uppercase">Секунд</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="space-y-3">
+                <a href="https://2gis.kz/astana/search/%D0%A0%D0%BE%D0%B7%D0%B0%20%D0%91%D0%B0%D0%B3%D0%BB%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0%201" target="_blank" class="w-full inline-flex items-center justify-center space-x-2 bg-white text-deepRose font-semibold py-3 px-6 rounded-xl border border-pink-200 hover:bg-pink-50 transition duration-300 shadow-sm text-sm">
+                    <i class="fas fa-route"></i>
+                    <span>2GIS / Картадан қарау</span>
+                </a>
+
+                <a href="https://wa.me/77082461074?text=%D0%A1%D3%A1%D0%BB%D0%B5%D0%BC%21%20%D0%A8%D0%B0%D1%92%D1%8B%D1%80%D1%83%D1%8B%D2%A3%D0%B4%D1%8B%20%D2%9B%D1%83%D0%B0%D0%BD%D0%B0%20%D2%9B%D0%B0%D0%B1%D1%8B%D0%BB%D0%B4%D0%B0%D0%B9%D0%BC%D1%8B%D0%BD%21%20%F0%9F%8C%B9%E2%9C%A8" target="_blank" class="w-full bg-gradient-to-r from-deepRose to-roseGold text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:opacity-95 transform active:scale-95 transition duration-200 text-sm flex items-center justify-center space-x-2">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span>"Әрине, келемін!" ❤️</span>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Footnote Love Quote -->
+        <p class="text-center font-cursive text-2xl text-deepRose/80">
+            Кешіміздің жарық жұлдызы бол, жаным!
+        </p>
+
+    </main>
+
+    <script>
+        // Rose Petals Falling Animation
+        const canvas = document.getElementById('petalCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const petals = [];
+        const petalCount = 25;
+
+        class Petal {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height - canvas.height;
+                this.size = Math.random() * 12 + 8;
+                this.speedY = Math.random() * 1.5 + 0.8;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.angle = Math.random() * 360;
+                this.spin = Math.random() * 2 - 1;
+                this.color = ['#FFD1DC', '#FFB6C1', '#FF69B4', '#E68A9C'][Math.floor(Math.random() * 4)];
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX + Math.sin(this.y / 30) * 0.5;
+                this.angle += this.spin;
+
+                if (this.y > canvas.height) {
+                    this.y = -20;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate((this.angle * Math.PI) / 180);
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.bezierCurveTo(-this.size / 2, -this.size / 2, -this.size, this.size / 3, 0, this.size);
+                ctx.bezierCurveTo(this.size, this.size / 3, this.size / 2, -this.size / 2, 0, 0);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        for (let i = 0; i < petalCount; i++) {
+            petals.push(new Petal());
+        }
+
+        function animatePetals() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            petals.forEach(petal => {
+                petal.update();
+                petal.draw();
+            });
+            requestAnimationFrame(animatePetals);
+        }
+
+        // Countdown Logic (Target: 24 October 13:00)
+        function updateCountdown() {
+            const now = new Date();
+            let targetYear = now.getFullYear();
+            
+            let targetDate = new Date(`October 24, ${targetYear} 13:00:00`);
+            
+            // If the date has already passed this year, count down to next year
+            if (now > targetDate) {
+                targetDate = new Date(`October 24, ${targetYear + 1} 13:00:00`);
+            }
+
+            const diff = targetDate - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Audio Player Simulation
+        let isPlaying = false;
+        // Background Romantic Soft Audio Stream
+        const audio = new Audio('https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112185.mp3');
+        audio.loop = true;
+
+        function toggleMusic() {
+            const icon = document.getElementById('musicIcon');
+            if (isPlaying) {
+                audio.pause();
+                icon.className = 'fas fa-music text-xl';
+            } else {
+                audio.play().catch(() => {});
+                icon.className = 'fas fa-pause text-xl text-deepRose';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        window.onload = function() {
+            animatePetals();
+        };
+    </script>
+</body>
+</html>
